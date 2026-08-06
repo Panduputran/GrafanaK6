@@ -1,7 +1,7 @@
 {
   "environments": {
     "development": "http://localhost:8000",
-    "staging": "https://domainkamu.com/staging",
+    "staging": "https://domainkamu.com/",
     "production": "https://domainkamu.com"
   }
 }
