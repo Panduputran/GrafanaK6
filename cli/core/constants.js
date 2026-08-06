@@ -1,32 +1,32 @@
 export const APP = {
-  NAME: "Grafana K6 CLI",
+  NAME: "GrafanaK6 CLI",
   VERSION: "1.0.0",
   DESCRIPTION: "Interactive Load Testing Framework",
   GITHUB: "https://github.com/Panduputran",
 };
 
-export const MENU_OPTIONS = [
-  { value: "run", label: "Run Load Test" },
-  { value: "reports", label: "View Reports" },
-  { value: "settings", label: "Settings" },
-  { value: "exit", label: "Exit" },
-];
+export const MENU_OPTIONS = {
+  RUN: "Run Load Test",
+  REPORTS: "View Reports",
+  SETTINGS: "Settings",
+  EXIT: "Exit",
+};
 
 export const ENVIRONMENTS = [
-  { value: "development", label: "Development (Local/Dev)" },
-  { value: "staging", label: "Staging (Pre-Prod)" },
-  { value: "production", label: "Production" },
+  { label: "Development (Local)", value: "development" },
+  { label: "Staging (Pre-Prod)", value: "staging" },
+  { label: "Production (Live)", value: "production" },
 ];
 
 export const TEST_TYPES = [
-  { value: "smoke", label: "Smoke Test (Minimal Load)" },
-  { value: "load", label: "Load Test (Normal Load)" },
-  { value: "stress", label: "Stress Test (Heavy Load)" },
-  { value: "spike", label: "Spike Test (Extreme Burst)" },
-  { value: "soak", label: "Soak Test (Long Duration)" },
+  { label: "Smoke Test (Minimal Load)", value: "smoke" },
+  { label: "Load Test (Normal Load)", value: "load" },
+  { label: "Stress Test (Heavy Load)", value: "stress" },
+  { label: "Spike Test (Extreme Burst)", value: "spike" },
+  { label: "Soak Test (Long Duration)", value: "soak" },
 ];
 
 export const SCENARIOS = [
-  { value: "health", label: "Health Check API" },
-  { value: "homepage", label: "Homepage Load" },
+  { label: "Health Check API", value: "health" },
+  { label: "Homepage Load", value: "homepage" },
 ];

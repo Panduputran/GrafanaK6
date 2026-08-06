@@ -5,11 +5,10 @@ import ora from "ora";
 import { logError, logSuccess } from "../core/utils.js";
 
 export async function runK6Test({ env, testType, scenario }) {
-  // Gunakan relative path dari root project
   const targetScript = path.join("tests", `${testType}.js`);
 
   if (!fs.existsSync(targetScript)) {
-    logError(`File pengujian tidak ditemukan: ${targetScript}`);
+    logError(`Test file not found: ${targetScript}`);
     return;
   }
 
@@ -21,14 +20,14 @@ export async function runK6Test({ env, testType, scenario }) {
   const reportFilename = `report-${testType}-${scenario}-${env}-${Date.now()}.json`;
   const reportPath = path.join(reportsDir, reportFilename);
 
-  console.log(`\n[INFO] Menjalankan pengujian k6...`);
+  console.log(`\n[INFO] Running k6 load test...`);
   const spinner = ora(`[Env: ${env} | Type: ${testType} | Scenario: ${scenario}]`).start();
   spinner.stop();
 
   return new Promise((resolve) => {
     const k6 = spawn("k6", ["run", "--summary-export", reportPath, targetScript], {
       stdio: "inherit",
-      cwd: process.cwd(), // Kunci: pastikan k6 jalan dari root folder
+      cwd: process.cwd(),
       env: { 
         ...process.env, 
         APP_ENV: env,
@@ -38,10 +37,10 @@ export async function runK6Test({ env, testType, scenario }) {
 
     k6.on("close", (code) => {
       if (code === 0) {
-        logSuccess(`Pengujian selesai dengan sukses!`);
-        logSuccess(`Laporan disimpan di: reports/${reportFilename}\n`);
+        logSuccess(`Test completed successfully!`);
+        logSuccess(`Report saved to: reports/${reportFilename}\n`);
       } else {
-        logError(`Pengujian gagal dengan status code ${code}\n`);
+        logError(`Test failed with status code ${code}\n`);
       }
       resolve();
     });

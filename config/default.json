@@ -1,7 +1,7 @@
 {
   "environments": {
     "development": "http://localhost:8000",
-    "staging": "https://v2.smkwikrama.sch.id/",
+    "staging": "https://domainkamu.com/staging",
     "production": "https://domainkamu.com"
   }
 }

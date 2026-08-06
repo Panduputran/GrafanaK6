@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import { APP } from "./constants.js";
 
-// Banner GrafanaK6 (Large Slant) + CLI (Small Slant) Clean
+// Banner GrafanaK6 dengan warna Ungu Hex (#800080)
 const ASCII_ART = `
    ______           ___                     __ __ _____     _______   ____
   / ____/________ _/ __/___ _____  ____ _  / //_// ___/    / ___/ /  / _/ 
@@ -13,9 +13,12 @@ const ASCII_ART = `
 export function showBanner() {
   console.clear();
 
-  const logo = chalk.cyan.bold(ASCII_ART);
+  const purple = chalk.hex("#800080");
+  const bgPurple = chalk.bgHex("#800080");
+
+  const logo = purple.bold(ASCII_ART);
   const description = chalk.bold.white(APP.DESCRIPTION);
-  const version = chalk.bgCyan.black(` v${APP.VERSION} `);
+  const version = bgPurple.white.bold(` v${APP.VERSION} `);
   const github = chalk.dim.underline(APP.GITHUB);
 
   console.log(`${logo}`);
