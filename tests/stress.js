@@ -1,16 +1,44 @@
-import { sleep } from "k6";
-import { stressStages } from "../config/stages.js";
-import { thresholds } from "../config/thresholds.js";
-import { healthCheck } from "../scenarios/health.js";
+import http from "k6/http";
+import { sleep, check } from "k6";
+import { config } from "../config/config.js";
 
 export const options = {
-    stages: stressStages,
-    thresholds: thresholds,
+
+    stages: [
+
+        {
+            duration: "30s",
+            target: config.vu
+        },
+
+        {
+            duration: "1m",
+            target: config.vu * 2
+        },
+
+        {
+            duration: "1m",
+            target: config.vu * 3
+        },
+
+        {
+            duration: "30s",
+            target: 0
+        }
+
+    ]
+
 };
 
 export default function () {
 
-    healthCheck();
+    let res = http.get(config.baseUrl);
+
+    check(res, {
+
+        "Status 200": (r) => r.status === 200
+
+    });
 
     sleep(1);
 

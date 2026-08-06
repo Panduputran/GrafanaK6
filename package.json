@@ -1,0 +1,35 @@
+{
+  "name": "grafanak6",
+  "version": "1.0.0",
+  "description": "Interactive Load Testing Framework using Grafana k6",
+  "type": "module",
+  "main": "cli.js",
+  "scripts": {
+    "start": "node cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Panduputran/GrafanaK6.git"
+  },
+  "keywords": [
+    "k6",
+    "grafana",
+    "load-testing",
+    "cli",
+    "performance-testing"
+  ],
+  "author": "Pandu Putra Nurasih",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Panduputran/GrafanaK6/issues"
+  },
+  "homepage": "https://github.com/Panduputran/GrafanaK6#readme",
+  "dependencies": {
+    "@clack/prompts": "^1.7.0",
+    "boxen": "^8.0.1",
+    "chalk": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "ora": "^9.4.1",
+    "picocolors": "^1.1.1"
+  }
+}

@@ -1,10 +1,15 @@
 import { sleep } from 'k6';
 import healthScenario from '../scenarios/health.js';
 import homepageScenario from '../scenarios/homepage.js';
+import { defaultThresholds } from '../config/thresholds.js';
 
 export const options = {
-  vus: 1,
-  duration: '5s',
+  stages: [
+    { duration: '2s', target: 2 },
+    { duration: '5s', target: 20 }, // Spike mendadak
+    { duration: '2s', target: 0 },
+  ],
+  thresholds: defaultThresholds,
 };
 
 export default function () {
