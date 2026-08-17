@@ -1,0 +1,10 @@
+# Contributing to GrafanaK6 CLI
+
+Thank you for your interest in contributing to GrafanaK6 CLI!
+
+## Development Workflow
+1. Fork the repository and create your branch: `git checkout -b feature/my-feature`
+2. Install dependencies: `npm install`
+3. Test your changes locally: `npm run start`
+4. Commit your changes with clear messages.
+5. Push to the branch and open a Pull Request.
